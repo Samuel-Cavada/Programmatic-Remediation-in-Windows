@@ -45,8 +45,6 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name "LocalAccountTokenFilterPolicy" -Value 1 -Type DWord -Force
 ```
 
-![Environment Setup](assets/images/setup.jpg)
-
 ---
 
 ## 🛠️ Walkthrough
@@ -62,8 +60,6 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > - Disabled Windows Firewall
 > - Enabled local admin remote access using PowerShell
 > - Configured an authenticated Tenable scan with DISA STIG Template
-
-![Step 1](assets/images/step1.jpg)
 
 ---
 
