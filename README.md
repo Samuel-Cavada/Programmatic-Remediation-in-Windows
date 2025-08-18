@@ -16,12 +16,12 @@
 
 ---
 
-## 📌 Project Objective
+##  Project Objective
 > Demonstrate how to use PowerShell scripts to programmatically remediate common Windows 10 vulnerabilities detected through authenticated Tenable.io scans. This lab emphasizes automation for vulnerability management and patch remediation.
 
 ---
 
-## 🧰 Tools & Technologies
+##  Tools & Technologies
 - **Platform:** Azure
 - **OS:** Windows 10
 - **Tools:** Tenable.io, PowerShell
@@ -29,7 +29,7 @@
 
 ---
 
-## 🧠 Skills Gained / Focus Areas
+##  Skills Gained / Focus Areas
 - Executed authenticated vulnerability scans with Tenable.io
 - Scripted programmatic remediation for Windows vulnerabilities
 - Automated the removal of insecure protocols, software, and services
@@ -37,7 +37,7 @@
 
 ---
 
-## 🧪 Environment Setup
+##  Environment Setup
 > A Windows 10 VM was provisioned in Azure. Firewall was disabled and registry keys were modified to enable remote administrative access. Scanning was performed via internal or cloud Tenable scanner.
 
 ```powershell
@@ -47,7 +47,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 ---
 
-## 🛠️ Walkthrough
+##  Walkthrough
 1. [Step 1: Initial Setup](#step-1-initial-setup)
 2. [Step 2: Configure the Environment](#step-2-configure-the-environment)
 3. [Step 3: Execute the Scan](#step-3-execute-the-scan)
@@ -65,12 +65,11 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 ### ✅ Step 2: Configure the Environment
 > Created vulnerabilities on the VM:
-> - Installed old version of Firefox
-> - Enabled SMB v1
-> - Enabled insecure SSL/TLS protocols using a helper script:
+> - Installed old version of Firefox  
+> - Enabled SMB v1 (located in **Windows Features → Turn Windows features on or off**)  
+> - Enabled insecure SSL/TLS protocols using a helper script:  
 >   [toggle-protocols.ps1](https://github.com/joshmadakor1/lognpacific-public/blob/main/automation/toggle-protocols.ps1)
 
-![Step 2](assets/images/step2.jpg)
 
 ---
 
@@ -81,8 +80,6 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 >   - SMB v1 enabled
 >   - TLS 1.0, TLS 1.1 enabled
 > - Exported results for comparison
-
-![Step 3](assets/images/step3.jpg)
 
 ---
 
@@ -108,7 +105,27 @@ powershell -ExecutionPolicy Bypass -File ".\toggle-win10-protocols.ps1"
 > - Exported results for validation  
 > - Deleted VM
 
-![Step 4](assets/images/step4.jpg)
+## Environment Setup Inital Scan
+This lab was conducted in Azure using a Windows 10 VM provisioned from the Azure Marketplace. The VM was configured with intentional security weaknesses to simulate a realistic remediation workflow. Tenable.io was used to perform the scans, leveraging valid administrative credentials for deeper visibility.
+
+![Environment Setup](https://raw.githubusercontent.com/Samuel-Cavada/Programmatic-Remediation-in-Windows/main/Images/PVROW0.png)
+
+
+
+---
+
+## Pre-Remediation Scan
+This scan was performed after intentional vulnerabilities were introduced into the VM but before any remediation actions were taken. The results highlight unpatched updates, insecure configurations, and outdated software.
+
+![Pre-Remediation Scan](https://raw.githubusercontent.com/Samuel-Cavada/Programmatic-Remediation-in-Windows/main/Images/PVROW1.png)
+
+---
+
+## Post-Remediation Scan
+This scan was conducted after all remediation steps were completed, including applying updates, disabling insecure protocols, and removing vulnerable software. The results verify that all targeted vulnerabilities were resolved.
+
+![Post-Remediation Scan](https://raw.githubusercontent.com/Samuel-Cavada/Programmatic-Remediation-in-Windows/main/Images/PVROW2.png)
+
 
 ---
 
