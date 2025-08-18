@@ -109,7 +109,7 @@ powershell -ExecutionPolicy Bypass -File ".\toggle-win10-protocols.ps1"
 This lab was conducted in Azure using a Windows 10 VM provisioned from the Azure Marketplace. The VM was configured with intentional security weaknesses to simulate a realistic remediation workflow. Tenable.io was used to perform the scans, leveraging valid administrative credentials for deeper visibility.
 
 
-
+![nvironment Setup Inital Scan](https://github.com/Samuel-Cavada/Programmatic-Remediation-in-Windows/blob/main/Images/PVROW0.png)
 
 ---
 
